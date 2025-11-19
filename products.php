@@ -3,7 +3,7 @@
     $host = "localhost";
     $user = "root";
     $pwd = "root";
-    $db = "t2507e";
+    $db = "t2507e_db";
     // b1. kết nối db
     $conn = new mysqli($host,$user,$pwd,$db);
     if($conn->connect_error){
