@@ -2,16 +2,9 @@
 // Lấy tên file hiện tại để xác định mục nào đang active
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
-<!-- 
-    Thay đổi col-3 thành col-md-3 col-lg-2 
-    Thêm class 'sidebar' tùy chỉnh và các class màu của Bootstrap 
--->
-<aside class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+<aside class="col-md-2 d-md-block sidebar collapse bg-dark">
     <div class="sidebar-sticky pt-3">
-        <!-- 
-            Sử dụng nav-pills để tạo menu
-            Thay <li> thành <a> để có thể click
-        -->
+        <h5 class="text-white text-center mb-4 d-none d-md-block">Admin Panel</h5>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link <?php echo ($current_page == 'categories.php') ? 'active' : ''; ?>" href="categories.php">
@@ -20,7 +13,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo ($current_page == 'products.php') ? 'active' : ''; ?>" href="#">
+                <a class="nav-link <?php echo ($current_page == 'products.php') ? 'active' : ''; ?>" href="products.php">
                     <i class="fas fa-box-open fa-icon"></i>
                     Product
                 </a>
