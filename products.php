@@ -78,7 +78,9 @@ if ($rs && $rs->num_rows > 0) {
                                     </td>
                                     <td class="text-center">
                                         <a href="edit_product.php?id=<?php echo $item['id']; ?>" class="btn btn-sm btn-outline-info"><i class="fas fa-edit"></i></a>
-                                        <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="delete_product.php?id=<?php echo $item['id']; ?>" class="btn btn-sm btn-outline-danger"
+                                            onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này không? Hành động này không thể hoàn tác!');">
+                                            <i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

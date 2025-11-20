@@ -15,16 +15,16 @@ if (isset($_GET['id'])) {
     // 5. Thực thi
     if ($conn->query($sql) === TRUE) {
         // Thành công -> Quay về trang danh sách
-        header("Location: categories.php");
+        header("Location: products.php");
         exit();
     } else {
         // Thất bại (Thường do ràng buộc khóa ngoại - sẽ giải thích bên dưới)
         echo "Lỗi: Không thể xóa danh mục này. <br>";
         echo "Nguyên nhân: " . $conn->error;
-        echo "<br><a href='categories.php'>Quay lại danh sách</a>";
+        echo "<br><a href='products.php'>Quay lại danh sách</a>";
     }
 } else {
     // Nếu không có ID -> Quay về trang danh sách
-    header("Location: categories.php");
+    header("Location: products.php");
     exit();
 }
