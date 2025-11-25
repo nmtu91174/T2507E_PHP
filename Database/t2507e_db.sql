@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 25, 2025 at 09:02 AM
+-- Generation Time: Nov 25, 2025 at 03:26 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -42,8 +42,7 @@ INSERT INTO `categories` (`id`, `name`, `slug`) VALUES
 (2, 'Watch', 'watch'),
 (3, 'Smart Phone', 'smart-phone'),
 (4, 'Computer', 'computer'),
-(5, 'Tablet', 'tablet'),
-(6, 'Laptop', 'laptop');
+(5, 'Tablet', 'tablet');
 
 -- --------------------------------------------------------
 
@@ -97,12 +96,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `thumbnail`, `qty`, `description`, `category_id`) VALUES
-(6, 'Essence Mascara Lash Princess-6', '15.9900', 'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp', 9, 'The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.', 1),
-(7, 'Eyeshadow Palette with Mirror-7', '26.9900', 'https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp', 2, 'The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it\'s convenient for on-the-go makeup application.', 1),
-(8, 'Powder Canister-8', '22.9900', 'https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp', 5, 'The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.', 1),
 (9, 'Red Lipstick-9', '21.4900', 'https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp', 23, 'The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.', 2),
 (10, 'iPhone 5s-10', '209.9900', 'https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp', 23, 'The iPhone 5s is a classic smartphone known for its compact design and advanced features during its release. While it\'s an older model, it still provides a reliable user experience.', 3),
-(11, 'Essence Mascara Lash Princess-11', '20.9900', 'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp', 9, 'The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.', 1),
 (12, 'Eyeshadow Palette with Mirror-12', '31.9900', 'https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp', 2, 'The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it\'s convenient for on-the-go makeup application.', 1),
 (13, 'Powder Canister-13', '27.9900', 'https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp', 5, 'The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.', 1),
 (14, 'Red Lipstick-14', '26.4900', 'https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp', 23, 'The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.', 2),
@@ -140,6 +135,26 @@ INSERT INTO `products` (`id`, `name`, `price`, `thumbnail`, `qty`, `description`
 (46, 'iPhone 5s-46', '245.9900', 'https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp', 23, 'The iPhone 5s is a classic smartphone known for its compact design and advanced features during its release. While it\'s an older model, it still provides a reliable user experience.', 3),
 (47, 'iPad Mini 2021 Starlight-47', '346.0000', 'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp', 3, 'The iPad Mini 2021 in Starlight is a compact and powerful tablet from Apple. Featuring a stunning Retina display, powerful A-series chip, and a sleek design, it offers a premium tablet experience.', 5);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
+(1, 'nguyen manh tu', 'mail@mail.com', '$2y$10$wWfHzx99pogRiORWsbXnhOdVuxwgWa6TazEE8AZ/oCJK6VOytqhqe');
+
 --
 -- Indexes for dumped tables
 --
@@ -173,6 +188,13 @@ ALTER TABLE `products`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -180,7 +202,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -199,6 +221,12 @@ ALTER TABLE `order_details`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
