@@ -8,7 +8,7 @@ export default function Home() {
 
     useEffect(() => {
         axios.get(`${API_URL}/products.php`)
-            .then(res => setFeaturedProducts(res.data.slice(0, 4))) // Chỉ lấy 4 sp mới nhất
+            .then(res => setFeaturedProducts(res.data.slice(0, 10))) // Chỉ lấy 4 sp mới nhất
             .catch(err => console.error(err));
     }, []);
 

@@ -13,7 +13,7 @@ if ($method === 'GET') {
         $result = $conn->query($sql);
         $product = $result->fetch_assoc();
         echo json_encode($product);
-    } 
+    }
     // 2. Lấy theo danh mục
     else if (isset($_GET['category_id'])) {
         $cat_id = intval($_GET['category_id']);
@@ -24,11 +24,11 @@ if ($method === 'GET') {
     }
     // 3. Lấy tất cả (Trang chủ)
     else {
-        $sql = "SELECT * FROM products";
+        // Thêm "ORDER BY id DESC" để đưa sản phẩm có ID lớn nhất (mới nhất) lên đầu
+        $sql = "SELECT * FROM products ORDER BY id DESC";
         $result = $conn->query($sql);
         $products = $result->fetch_all(MYSQLI_ASSOC);
         echo json_encode($products);
     }
 }
 $conn->close();
-?>
